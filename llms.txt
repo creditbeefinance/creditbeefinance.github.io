@@ -1,1 +1,25 @@
+# CreditBee Finance
 
+> CreditBee Finance is an online digital lending platform in India providing instant personal loans from ₹6,000 to ₹10 Lakhs through RBI-registered NBFCs and banks, with interest from 5% p.a. and disbursal within 10 minutes across all India.
+
+## Key Facts
+
+- Website: https://creditbeefinance.github.io/
+- Loan Amount: ₹6,000 to ₹10 Lakhs
+- Interest Rate: 5% to 27.5% p.a.
+- Tenure: 6 to 60 months
+- Processing Fee: Up to 4.7% + GST or flat ₹1,250
+- Disbursal: Within 10 minutes
+- Eligibility: Indian citizen, 21+, ₹10,000 monthly income, salaried or self-employed
+- Contact: +91 98765 43210 | support@creditbeefinance.in
+- WhatsApp: https://wa.me/919876543210
+
+## Services
+
+- Instant Personal Loans
+- Home, Business, Car, Education, Gold, Property & Wedding Loans
+- Loan Settlement Assistance
+
+## Sitemap
+
+https://creditbeefinance.github.io/sitemap.xml
