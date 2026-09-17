@@ -992,7 +992,7 @@
             font-weight: 800;
             letter-spacing: .09em;
             text-transform: uppercase;
-            color: rgba(163, 178, 202, .6);
+            color: rgba(163, 178, 202, .85);
             white-space: nowrap;
         }
 
@@ -3625,16 +3625,20 @@
 
                 <div class="grid-3">
                     <article class="tcard" data-reveal>
-                        <div class="stars" aria-label="Rated 5 out of 5">
+                        <div class="stars" role="img" aria-label="Rated 5 out of 5">
                             <svg>
                                 <use href="#i-star" />
-                            </svg><svg>
+                            </svg>
+                            <svg>
                                 <use href="#i-star" />
-                            </svg><svg>
+                            </svg>
+                            <svg>
                                 <use href="#i-star" />
-                            </svg><svg>
+                            </svg>
+                            <svg>
                                 <use href="#i-star" />
-                            </svg><svg>
+                            </svg>
+                            <svg>
                                 <use href="#i-star" />
                             </svg>
                         </div>
@@ -3648,16 +3652,20 @@
                     </article>
 
                     <article class="tcard" data-reveal style="--d:.08s">
-                        <div class="stars" aria-label="Rated 5 out of 5">
+                        <div class="stars" role="img" aria-label="Rated 5 out of 5">
                             <svg>
                                 <use href="#i-star" />
-                            </svg><svg>
+                            </svg>
+                            <svg>
                                 <use href="#i-star" />
-                            </svg><svg>
+                            </svg>
+                            <svg>
                                 <use href="#i-star" />
-                            </svg><svg>
+                            </svg>
+                            <svg>
                                 <use href="#i-star" />
-                            </svg><svg>
+                            </svg>
+                            <svg>
                                 <use href="#i-star" />
                             </svg>
                         </div>
@@ -3671,16 +3679,20 @@
                     </article>
 
                     <article class="tcard" data-reveal style="--d:.16s">
-                        <div class="stars" aria-label="Rated 5 out of 5">
+                        <div class="stars" role="img" aria-label="Rated 5 out of 5">
                             <svg>
                                 <use href="#i-star" />
-                            </svg><svg>
+                            </svg>
+                            <svg>
                                 <use href="#i-star" />
-                            </svg><svg>
+                            </svg>
+                            <svg>
                                 <use href="#i-star" />
-                            </svg><svg>
+                            </svg>
+                            <svg>
                                 <use href="#i-star" />
-                            </svg><svg>
+                            </svg>
+                            <svg>
                                 <use href="#i-star" />
                             </svg>
                         </div>
@@ -4319,17 +4331,22 @@
                 } else counters.forEach(runCounter);
             }
 
-            /* ---------- Card cursor glow ---------- */
+            /* ---------- Card cursor glow (cached rect to avoid forced reflow) ---------- */
             if (window.matchMedia("(hover: hover)").matches && !reduceMotion) {
                 document.querySelectorAll(".card").forEach(function (card) {
-                    card.addEventListener("pointermove", function (e) {
-                        var rect = card.getBoundingClientRect();
-                        card.style.setProperty("--mx", (e.clientX - rect.left) + "px");
-                        card.style.setProperty("--my", (e.clientY - rect.top) + "px");
+                    var cardRect = null;
+                    card.addEventListener("pointerenter", function () {
+                        cardRect = card.getBoundingClientRect();
                     });
+                    card.addEventListener("pointermove", function (e) {
+                        if (!cardRect) cardRect = card.getBoundingClientRect();
+                        card.style.setProperty("--mx", (e.clientX - cardRect.left) + "px");
+                        card.style.setProperty("--my", (e.clientY - cardRect.top) + "px");
+                    });
+                    card.addEventListener("scroll", function () { cardRect = null; }, { passive: true });
+                    window.addEventListener("resize", function () { cardRect = null; }, { passive: true });
                 });
             }
-
             /* ---------- EMI Calculator ---------- */
             var amountRange = document.getElementById("amountRange");
             var tenureRange = document.getElementById("tenureRange");
