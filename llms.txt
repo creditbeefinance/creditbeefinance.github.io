@@ -2,4 +2,4 @@
 
 > Online digital lending platform in India. Instant personal loans from ₹6,000 to ₹10 Lakhs through RBI-registered NBFCs and banks. Interest from 5% p.a. Disbursal within 10 minutes.
 
-- Website: https://seemabaim39-coder.github.io/creditbeefinance.github.io/
+- [CreditBee Finance Website](https://creditbeefinance.github.io/)
