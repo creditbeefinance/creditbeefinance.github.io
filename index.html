@@ -3616,37 +3616,6 @@
 
                 <div class="split">
                     <div class="form-card" data-reveal>
-                        <!--
-            ============================================================
-            GOOGLE SHEETS SETUP (5 minutes)
-            ============================================================
-            1. Go to https://sheets.google.com → create a new sheet.
-            2. Add headers in Row 1: Timestamp | Name | Phone | Email | City | Loan Type | Amount | Message
-            3. Click Extensions → Apps Script. Paste this code:
-
-            function doPost(e) {
-              var sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
-              var d = e.parameter;
-              sheet.appendRow([
-                new Date(),
-                d.name  || "",
-                d.phone || "",
-                d.email || "",
-                d.city  || "",
-                d.loanType || "",
-                d.amount || "",
-                d.message || ""
-              ]);
-              return ContentService.createTextOutput(JSON.stringify({status:"ok"}))
-                .setMimeType(ContentService.MimeType.JSON);
-            }
-
-            4. Click Deploy → New deployment → Type: Web app
-               Execute as: Me   |   Who has access: Anyone
-            5. Copy the Web App URL and paste it below replacing
-               "PASTE_YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL_HERE"
-            ============================================================
-          -->
                         <form id="loanForm" novalidate>
                             <div class="form-grid">
                                 <div class="fg">
@@ -4122,29 +4091,21 @@
             <span class="fab-tip">WhatsApp Us</span>
         </a>
     </div>
-
-    <!-- ================= JAVASCRIPT ================= -->
     <script>
         (function () {
             "use strict";
 
-            /* ============================================================
-               ⚙️ CONFIGURATION — change these two values
-               ============================================================ */
-            var GOOGLE_SHEET_URL = "PASTE_YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL_HERE";
-            var WHATSAPP_NUMBER = "919876543210"; // country code + number, no +
+            var GOOGLE_SHEET_URL = "https://script.google.com/macros/s/AKfycbx1mXIWBNqZJ0AElx89-JZgWxZCR4sHlJeSjJGaC6d_Cz4L_0f55xyQf2liB5MpI-ro/exec";
+            var WHATSAPP_NUMBER = "919876543210"; 
 
             var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-            /* ---------- Footer year ---------- */
             var yearEl = document.getElementById("year");
             if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-            /* ---------- Marquee duplicate ---------- */
             var marquee = document.getElementById("marquee");
             if (marquee) marquee.innerHTML += marquee.innerHTML;
 
-            /* ---------- Header scroll ---------- */
             var header = document.getElementById("siteHeader");
             var lastScroll = -1;
             function onScroll() {
@@ -4155,7 +4116,6 @@
             window.addEventListener("scroll", onScroll, { passive: true });
             onScroll();
 
-            /* ---------- Mobile nav ---------- */
             var toggle = document.getElementById("navToggle");
             var navLinks = document.getElementById("primaryNav");
 
