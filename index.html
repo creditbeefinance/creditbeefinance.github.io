@@ -58,14 +58,12 @@
     <style>
         :root {
             --bg: #06090f;
-            --card: rgba(255, 255, 255, .042);
             --stroke: rgba(255, 255, 255, .09);
             --stroke-hi: rgba(255, 255, 255, .18);
             --txt: #eaf0fb;
             --muted: #a3b2ca;
             --accent: #818cf8;
             --accent-2: #6366f1;
-            --accent-3: #a855f7;
             --accent-soft: rgba(129, 140, 248, .09);
             --accent-border: rgba(129, 140, 248, .28);
             --accent-border-strong: rgba(129, 140, 248, .5);
@@ -1464,10 +1462,6 @@
             color: var(--green)
         }
 
-        .process {
-            position: relative
-        }
-
         .steps {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
@@ -2434,10 +2428,6 @@
             animation-delay: 1.05s
         }
 
-        .fab:nth-child(3) {
-            animation-delay: 1.2s
-        }
-
         @keyframes fabIn {
             from {
                 opacity: 0;
@@ -2504,42 +2494,6 @@
             color: #fff
         }
 
-        .fab-settle {
-            width: auto;
-            height: 58px;
-            padding: 0 24px;
-            border-radius: 100px;
-            background: linear-gradient(135deg, #a855f7, #7c3aed 55%, #6366f1);
-            color: #fff;
-            font-weight: 800;
-            font-size: .9rem;
-            gap: 10px;
-            display: flex;
-            align-items: center;
-            box-shadow: 0 14px 34px -10px rgba(168, 85, 247, .9), 0 0 0 0 rgba(168, 85, 247, .6);
-            animation: fabIn .6s var(--ease) 1.2s backwards, settleGlow 2.4s ease-in-out 2s infinite;
-        }
-
-        .fab-settle svg {
-            width: 22px;
-            height: 22px
-        }
-
-        .fab-settle .fab-txt {
-            white-space: nowrap
-        }
-
-        @keyframes settleGlow {
-
-            0%,
-            100% {
-                box-shadow: 0 14px 34px -10px rgba(168, 85, 247, .9), 0 0 0 0 rgba(168, 85, 247, .55)
-            }
-
-            50% {
-                box-shadow: 0 18px 40px -10px rgba(168, 85, 247, 1), 0 0 0 12px rgba(168, 85, 247, 0)
-            }
-        }
 
         .fab-ring {
             position: absolute;
@@ -2608,18 +2562,6 @@
             .fab svg {
                 width: 23px;
                 height: 23px
-            }
-
-            .fab-settle {
-                height: 52px;
-                padding: 0 18px;
-                font-size: .82rem;
-                gap: 8px
-            }
-
-            .fab-settle svg {
-                width: 19px;
-                height: 19px
             }
 
             .fab-tip {
@@ -3547,7 +3489,8 @@
                             </svg>
                         </div>
                         <p>"I applied for a personal loan of ₹3 Lakh at 11 PM and the money was in my account the very
-                            next moment. The entire process was online and incredibly smooth. KreditBee Finance genuinely
+                            next moment. The entire process was online and incredibly smooth. KreditBee Finance
+                            genuinely
                             delivers on its 10-minute promise."</p>
                         <div class="tperson">
                             <span class="tavatar av-1" aria-hidden="true">RK</span>
@@ -4121,7 +4064,7 @@
                 if ((y > 12) !== (lastScroll > 12)) header.classList.toggle("scrolled", y > 12);
                 lastScroll = y;
             }
-            window.addEventListener("scroll", onScroll, { passive: true });
+            window.addEventListener("scroll", onScroll, {passive: true});
             onScroll();
 
             var toggle = document.getElementById("navToggle");
@@ -4156,7 +4099,7 @@
             /* ---------- Scroll reveal ---------- */
             var revealEls = document.querySelectorAll("[data-reveal]");
             if (reduceMotion || !("IntersectionObserver" in window)) {
-                revealEls.forEach(function (el) { el.classList.add("in"); });
+                revealEls.forEach(function (el) {el.classList.add("in");});
             } else {
                 var revealObserver = new IntersectionObserver(function (entries, obs) {
                     entries.forEach(function (entry) {
@@ -4165,15 +4108,15 @@
                             obs.unobserve(entry.target);
                         }
                     });
-                }, { threshold: 0.12, rootMargin: "0px 0px -60px 0px" });
-                revealEls.forEach(function (el) { revealObserver.observe(el); });
+                }, {threshold: 0.12, rootMargin: "0px 0px -60px 0px"});
+                revealEls.forEach(function (el) {revealObserver.observe(el);});
             }
 
             /* ---------- Animated counters ---------- */
             var counters = document.querySelectorAll(".count");
             function runCounter(el) {
                 var target = parseInt(el.getAttribute("data-target"), 10) || 0;
-                if (reduceMotion) { el.textContent = target.toLocaleString("en-IN"); return; }
+                if (reduceMotion) {el.textContent = target.toLocaleString("en-IN"); return;}
                 var duration = 1700, start = null;
                 function tick(ts) {
                     if (!start) start = ts;
@@ -4188,10 +4131,10 @@
                 if ("IntersectionObserver" in window) {
                     var co = new IntersectionObserver(function (entries, obs) {
                         entries.forEach(function (entry) {
-                            if (entry.isIntersecting) { runCounter(entry.target); obs.unobserve(entry.target); }
+                            if (entry.isIntersecting) {runCounter(entry.target); obs.unobserve(entry.target);}
                         });
-                    }, { threshold: 0.5 });
-                    counters.forEach(function (el) { co.observe(el); });
+                    }, {threshold: 0.5});
+                    counters.forEach(function (el) {co.observe(el);});
                 } else counters.forEach(runCounter);
             }
 
@@ -4207,8 +4150,8 @@
                         card.style.setProperty("--mx", (e.clientX - cardRect.left) + "px");
                         card.style.setProperty("--my", (e.clientY - cardRect.top) + "px");
                     });
-                    card.addEventListener("scroll", function () { cardRect = null; }, { passive: true });
-                    window.addEventListener("resize", function () { cardRect = null; }, { passive: true });
+                    card.addEventListener("scroll", function () {cardRect = null;}, {passive: true});
+                    window.addEventListener("resize", function () {cardRect = null;}, {passive: true});
                 });
             }
             /* ---------- EMI Calculator ---------- */
@@ -4225,7 +4168,7 @@
                 var interestOut = document.getElementById("interestOut");
                 var totalOut = document.getElementById("totalOut");
 
-                var inr = function (n) { return "₹" + Math.round(n).toLocaleString("en-IN"); };
+                var inr = function (n) {return "₹" + Math.round(n).toLocaleString("en-IN");};
 
                 function calculateEMI() {
                     var P = parseFloat(amountRange.value);
@@ -4307,9 +4250,9 @@
                         sheetRequest = fetch(GOOGLE_SHEET_URL, {
                             method: "POST",
                             mode: "no-cors",
-                            headers: { "Content-Type": "application/x-www-form-urlencoded" },
+                            headers: {"Content-Type": "application/x-www-form-urlencoded"},
                             body: params.toString()
-                        }).catch(function () { /* silent — WhatsApp fallback still works */ });
+                        }).catch(function () { /* silent — WhatsApp fallback still works */});
                     }
 
                     var text =
@@ -4330,26 +4273,12 @@
                         window.open(waUrl, "_blank", "noopener,noreferrer");
                         setTimeout(function () {
                             submitBtn.disabled = false;
-                            submitBtn.innerHTML = 'Submit Application <svg style="width:18px;height:18px"><use href="#i-arrow"/></svg>';
+                            submitBtn.innerHTML = 'Submit Application <svg><use href="#i-arrow"/></svg>';
                             form.reset();
                         }, 1400);
                     });
                 });
             }
-
-            /* ---------- Smooth anchor focus ---------- */
-            document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
-                anchor.addEventListener("click", function () {
-                    var id = this.getAttribute("href");
-                    if (id.length > 1) {
-                        var target = document.querySelector(id);
-                        if (target) {
-                            target.setAttribute("tabindex", "-1");
-                            setTimeout(function () { target.focus({ preventScroll: true }); }, 500);
-                        }
-                    }
-                });
-            });
 
         })();
     </script>
